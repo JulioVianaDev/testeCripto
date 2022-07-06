@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {useState, useEffect} from 'react';
 function App() {
+  const [coins,setCoins] = useState([])
+  useEffect(()=>{
+    fetch('https://api.binance.com/api/v3/ticker/24hr')
+    .then(response=>response.json())
+    .then(data=>{
+        setCoins(data.filter(moeda=> moeda.symbol.includes('BRL')));
+      }).catch(err=>{
+        console.log(err)
+    })
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {coins.map((coin,index)=>{
+        return(
+          <div key={index} >
+            <p>{coin.symbol}</p>
+          </div>
+        )
+        })}
     </div>
   );
 }
