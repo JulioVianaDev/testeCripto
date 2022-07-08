@@ -1,5 +1,7 @@
 import { useSortableData } from './UseStortableDada';
-import AccordionCoin from './AcordionCoin';
+import AccordionCoin from './AccordionCoin';
+import { useEffect } from 'react';
+import './ProductTable.css';
 export const ProductTable = (props) => {
   const { items, requestSort, sortConfig } = useSortableData(props.produtos.coins);
   const getClassNamesFor = (name) => {
@@ -9,14 +11,16 @@ export const ProductTable = (props) => {
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
   console.log(props)
+  useEffect(() =>{
+    requestSort('symbol')
+  },[])
   return (
-    <table table table-dark mt-4 table-hover>
-      <thead>
-        <tr>
-          <th>
+    <div table table-dark mt-4 table-hover>
+      <div className='containerGrid topo'>
+          <div className='id'>
               #
-          </th>
-          <th>
+          </div>
+          <div className='textAlignLeft '>
             <button
               type="button"
               onClick={() => requestSort('symbol')}
@@ -24,8 +28,8 @@ export const ProductTable = (props) => {
             >
               Nome
             </button>
-          </th>
-          <th>
+          </div>
+          <div>
             <button
               type="button"
               onClick={() => requestSort('lastPrice')}
@@ -33,8 +37,8 @@ export const ProductTable = (props) => {
             >
               Price
             </button>
-          </th>
-          <th>
+          </div>
+          <div>
             <button
               type="button"
               onClick={() => requestSort('priceChangePercent')}
@@ -42,8 +46,8 @@ export const ProductTable = (props) => {
             >
              24Hr
             </button>
-          </th>
-          <th>
+          </div>
+          <div>
             <button
               type="button"
               onClick={() => requestSort('')}
@@ -51,19 +55,18 @@ export const ProductTable = (props) => {
             >
              Marketcap
             </button>
-          </th>
-          <th>
+          </div>
+          <div>
             <button
               type="button"
-              onClick={() => requestSort('')}
-              className={getClassNamesFor('')}
+              onClick={() => requestSort('volume')}
+              className={getClassNamesFor('volume')}
             >
              Volume
             </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
+          </div>
+      </div>
+      <div>
         {items.map((item,index) => (
           <>
             <AccordionCoin  id={item.id} 
@@ -83,7 +86,8 @@ export const ProductTable = (props) => {
            
           </>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
+    
   );
  };

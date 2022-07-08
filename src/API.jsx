@@ -15,7 +15,7 @@ export function API() {
     })
   },[])
   return (
-    <div>
+    <div className='projeto'>
       <Order coins={coins}/>
     </div>
   )

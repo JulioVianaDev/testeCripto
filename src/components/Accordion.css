@@ -1,0 +1,30 @@
+.linha-openprice{
+  width: 50%;
+}
+.text-danger{
+  color: #FF6838;
+}
+.text-success{
+  color: #58BD7D;
+}
+.fundo-padrao{
+  background: #F5F5F5;
+}
+.fundo-clicado{
+  background-color:   #DDDDDD;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.accordion{
+  display: grid;
+  grid-template-columns:repeat(4,25%);
+}
+.letraEscura{
+  color: #23262F;
+  font-style: normal bold;
+  font-size: 14px;
+}
+.accordion{
+  padding-left: 38px;
+}

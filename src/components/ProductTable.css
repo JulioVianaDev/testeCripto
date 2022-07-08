@@ -1,0 +1,25 @@
+.containerGrid{
+  display:grid;
+  grid-template-columns:repeat(6, 16%);
+  height: 71px;
+  justify-content: center;
+}
+.textAlignRight{
+  text-align: right;
+}
+.textAlignLeft{
+  text-align: left;
+}
+.symbol{
+  left:0;
+}
+.projeto{
+  padding: 100px 180px 100px 180px;
+}
+.topo{
+  color: #777E91;
+}
+button{
+  border: none;
+  background-color: #F5F5F5;
+}
