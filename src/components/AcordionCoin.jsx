@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-
+import star from '../images/Line.png'
 const AccordionCoin = ({ index,id ,last,symbol,price,porcentagem,mkt,volume,
                          openPrice,fechamento,valueVolume,largerPrice,lowPrice}) => {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
     <tr key={id} onClick={() => setIsActive(!isActive)}>
-    <td className="text-muted">{index}</td>
+    <td className="text-muted"><img src={star} alt="" />     {index}</td>
           <td >{symbol}</td>
           <td>$ {price}</td>
           <td className={porcentagem > 0 ? "text-success" : "text-danger"}>{porcentagem} </td>
-          <td>{mkt}</td>
+          <td>{mkt}</td>  
           <td> {volume} </td>  
       </tr>
       <div className="accordion-item">
